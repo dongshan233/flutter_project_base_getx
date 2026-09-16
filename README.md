@@ -1,17 +1,39 @@
 # flutter_project_base
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+lib/
+│
+├── main.dart
+│
+├── app/
+│   ├── bindings/
+│   │   └── app_binding.dart
+│   │
+│   └── routes/
+│       ├── app_pages.dart
+│       └── app_routes.dart
+│
+├── core/
+│   ├── network/
+│   │   └── api_client.dart
+│   │
+│   └── storage/
+│       └── token_storage.dart
+│
+├── data/
+│   ├── models/
+│   │   └── user.dart
+│   │
+│   └── repositories/
+│       ├── auth_repository.dart
+│       └── user_repository.dart
+│
+└── modules/
+    ├── login/
+    │   ├── login_binding.dart
+    │   ├── login_controller.dart
+    │   └── login_page.dart
+    │
+    └── home/
+        ├── home_binding.dart
+        ├── home_controller.dart
+        └── home_page.dart
