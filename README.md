@@ -1,5 +1,6 @@
 # flutter_project_base
 
+```
 lib/
 │
 ├── main.dart
@@ -37,3 +38,4 @@ lib/
         ├── home_binding.dart
         ├── home_controller.dart
         └── home_page.dart
+```
