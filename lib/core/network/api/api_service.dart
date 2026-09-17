@@ -3,6 +3,7 @@ import 'package:flutter_project_base/core/network/api/api_constant.dart';
 import 'package:flutter_project_base/core/network/http/base_result.dart';
 import 'package:flutter_project_base/core/network/http/network_manager.dart';
 import 'package:flutter_project_base/data/models/banner_info.dart';
+import 'package:flutter_project_base/data/models/user_info.dart';
 
 /// API服务类
 class ApiService {
@@ -91,17 +92,17 @@ class ApiService {
   //   return BaseResult(errorCode: result.errorCode, errorMsg: result.errorMsg, data: UserInfo.fromJson(result.data as Map<String, dynamic>));
   // }
 
-  // /// 用户登录
-  // /// [params] 被花括号 {} 括起来，这表示它是命名参数，必须使用 params: value 的方式传递。
-  // /// [userInfo] 用户信息
-  // Future<BaseResult<UserInfo>> login({Map<String, dynamic>? params}) async {
-  //   final result = await _networkManager.post(ApiConstant.login, data: params, contentType: Headers.formUrlEncodedContentType);
-  //   //这里要做判空处理 因为result.data 可能是null
-  //   if (result.data == null) {
-  //     return BaseResult(errorCode: result.errorCode, errorMsg: result.errorMsg, data: null);
-  //   }
-  //   return BaseResult(errorCode: result.errorCode, errorMsg: result.errorMsg, data: UserInfo.fromJson(result.data as Map<String, dynamic>));
-  // }
+  /// 用户登录
+  /// [params] 被花括号 {} 括起来，这表示它是命名参数，必须使用 params: value 的方式传递。
+  /// [userInfo] 用户信息
+  Future<BaseResult<UserInfo>> login({Map<String, dynamic>? params}) async {
+    final result = await _networkManager.post(ApiConstant.login, data: params, contentType: Headers.formUrlEncodedContentType);
+    //这里要做判空处理 因为result.data 可能是null
+    if (result.data == null) {
+      return BaseResult(errorCode: result.errorCode, errorMsg: result.errorMsg, data: null);
+    }
+    return BaseResult(errorCode: result.errorCode, errorMsg: result.errorMsg, data: UserInfo.fromJson(result.data as Map<String, dynamic>));
+  }
 
   // /// 体系列表
   // /// [params] 被花括号 {} 括起来，这表示它是命名参数，必须使用 params: value 的方式传递。

@@ -1,6 +1,5 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart' as GetStorage;
 import 'package:flutter/services.dart';
 import 'package:flutter_project_base/app/bindings/app_binding.dart';
 import 'package:flutter_project_base/app/routes/app_pages.dart';
