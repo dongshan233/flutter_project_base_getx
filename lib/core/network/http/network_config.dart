@@ -1,0 +1,30 @@
+import 'package:flutter_project_base/core/network/api/api_constant.dart';
+import 'package:flutter_project_base/core/storage/storage_util.dart';
+
+/// 网络请求配置类
+class NetworkConfig {
+  /// 基础URL
+  static const String baseUrl = ApiConstant.baseUrl;
+
+  /// 连接超时时间（毫秒）
+
+  static const int connectTimeout = 10000;
+
+  /// 接收超时时间（毫秒）
+  static const int receiveTimeout = 10000;
+
+  /// 发送超时时间（毫秒）
+  static const int sendTimeout = 10000;
+
+  /// 是否启用日志
+  static const bool enableLog = true;
+
+  /// 默认请求头
+  static Map<String, String> defaultHeaders() {
+    return {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Cookie':
+          'loginUserName=${StorageUtil.getString(StorageKey.loginUsername)}; loginUserPassword=${StorageUtil.getString(StorageKey.loginPassword)}',
+    };
+  }
+}

@@ -2,6 +2,9 @@ import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as GetStorage;
 import 'package:flutter/services.dart';
+import 'package:flutter_project_base/app/bindings/app_binding.dart';
+import 'package:flutter_project_base/app/routes/app_pages.dart';
+import 'package:flutter_project_base/app/routes/app_routes.dart';
 import 'package:flutter_project_base/core/storage/storage_util.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
@@ -63,9 +66,10 @@ void main() async {
         scaffoldBackgroundColor: Colors.white,
       ),
       // 初始路由
-      initialRoute: Routes.initial,
+      initialRoute: AppRoutes.login,
       // 配置路由
-      getPages: Routes.pages,
+      getPages: AppPages.pages,
+      initialBinding: AppBinding(),
       // 添加 builder 作为额外的保障
       builder: (context, child) {
         return Scaffold(
