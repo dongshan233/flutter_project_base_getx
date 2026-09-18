@@ -6,7 +6,8 @@ class ToastUtil {
   ToastUtil._();
 
   // 显示默认 toast
-  static void show(String message, {
+  static void show(
+    String message, {
     ToastGravity gravity = ToastGravity.BOTTOM,
     int timeInSecForIosWeb = 2,
     Color? backgroundColor,
@@ -25,7 +26,8 @@ class ToastUtil {
   }
 
   // 显示成功 toast
-  static void showSuccess(String message, {
+  static void showSuccess(
+    String message, {
     ToastGravity gravity = ToastGravity.BOTTOM,
     int timeInSecForIosWeb = 2,
   }) {
@@ -41,10 +43,12 @@ class ToastUtil {
   }
 
   // 显示错误 toast
-  static void showError(String message, {
+  static void showError(
+    String message, {
     ToastGravity gravity = ToastGravity.BOTTOM,
     int timeInSecForIosWeb = 2,
   }) {
+    if (message.isEmpty) return;
     Fluttertoast.showToast(
       msg: message,
       toastLength: Toast.LENGTH_SHORT,
@@ -57,7 +61,8 @@ class ToastUtil {
   }
 
   // 显示警告 toast
-  static void showWarning(String message, {
+  static void showWarning(
+    String message, {
     ToastGravity gravity = ToastGravity.BOTTOM,
     int timeInSecForIosWeb = 2,
   }) {
@@ -73,7 +78,8 @@ class ToastUtil {
   }
 
   // 显示信息 toast
-  static void showInfo(String message, {
+  static void showInfo(
+    String message, {
     ToastGravity gravity = ToastGravity.BOTTOM,
     int timeInSecForIosWeb = 2,
   }) {
@@ -89,7 +95,8 @@ class ToastUtil {
   }
 
   // 显示长时间 toast
-  static void showLong(String message, {
+  static void showLong(
+    String message, {
     ToastGravity gravity = ToastGravity.BOTTOM,
     int timeInSecForIosWeb = 4,
     Color? backgroundColor,
@@ -113,7 +120,8 @@ class ToastUtil {
   }
 
   // 显示带自定义位置的 toast
-  static void showWithPosition(String message, {
+  static void showWithPosition(
+    String message, {
     required ToastGravity gravity,
     int timeInSecForIosWeb = 2,
     Color? backgroundColor,
@@ -132,7 +140,8 @@ class ToastUtil {
   }
 
   // 显示带自定义样式的 toast
-  static void showWithStyle(String message, {
+  static void showWithStyle(
+    String message, {
     ToastGravity gravity = ToastGravity.BOTTOM,
     int timeInSecForIosWeb = 2,
     required Color backgroundColor,
