@@ -4,9 +4,16 @@
     <item android:drawable="?android:colorBackground" />
 
     <!-- You can insert your own image assets here -->
+    <!-- fill：
+        效果：拉伸图片以完全填满屏幕。
+        优点：绝对不会有白边。
+        缺点：如果图片比例与屏幕差异过大，图片可能会被拉伸变形。
+    center（当前设置）：
+        效果：保持图片原始大小和比例居中显示。
+        缺点：一旦图片比例与屏幕不符，未被覆盖的区域就会显示底层的背景色。 -->
     <item>
         <bitmap
-            android:gravity="center"
+            android:gravity="fill"
             android:src="@mipmap/launch_image" />
     </item>
 </layer-list>

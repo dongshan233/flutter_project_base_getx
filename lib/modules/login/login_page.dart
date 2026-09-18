@@ -99,7 +99,7 @@ class LoginPage extends GetView<LoginController> {
         ),
         const SizedBox(height: 20),
         const Text(
-          'WanAndroid',
+          'GetX Flutter',
           style: TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,
