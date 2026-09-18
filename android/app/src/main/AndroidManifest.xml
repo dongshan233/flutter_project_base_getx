@@ -2,7 +2,7 @@
     <application
         android:label="flutter_project_base"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_logo">
         <activity
             android:name=".MainActivity"
             android:exported="true"
