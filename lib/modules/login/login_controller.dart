@@ -119,7 +119,7 @@ class LoginController extends GetxController with GetTickerProviderStateMixin {
         StorageUtil.remove(StorageKey.loginPassword);
       }
       ToastUtil.show('登录成功，欢迎回来，$username！');
-      RouteUtils.offAll(AppRoutes.home); // 3. 最后跳转，栈里干干净净
+      RouteUtils.offAll(AppRoutes.main); // 3. 最后跳转，栈里干干净净
     } catch (e) {
       // 显示toast
       ToastUtil.show('登陆异常：$e');

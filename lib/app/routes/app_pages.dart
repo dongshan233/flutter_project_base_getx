@@ -1,6 +1,6 @@
 import 'package:flutter_project_base/app/routes/app_routes.dart';
-import 'package:flutter_project_base/modules/home/home_binding.dart';
-import 'package:flutter_project_base/modules/home/home_page.dart';
+import 'package:flutter_project_base/modules/main/main_binding.dart';
+import 'package:flutter_project_base/modules/main/main_page.dart';
 import 'package:flutter_project_base/modules/login/login_binding.dart';
 import 'package:flutter_project_base/modules/login/login_page.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -14,9 +14,9 @@ abstract class AppPages {
       transition: Transition.fadeIn,
     ),
     GetPage(
-      name: AppRoutes.home,
-      page: () => HomePage(),
-      binding: HomeBinding(),
+      name: AppRoutes.main,
+      page: () => MainPage(),
+      binding: MainBinding(),
     ),
   ];
 }
