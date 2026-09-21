@@ -3,10 +3,12 @@ import 'package:flutter_project_base/core/network/api/api_constant.dart';
 import 'package:flutter_project_base/core/network/http/base_result.dart';
 import 'package:flutter_project_base/core/network/http/network_manager.dart';
 import 'package:flutter_project_base/data/models/banner_info.dart';
+import 'package:flutter_project_base/data/models/collect_article_info.dart';
 import 'package:flutter_project_base/data/models/harmony_column_info.dart';
 import 'package:flutter_project_base/data/models/home_article.dart';
 import 'package:flutter_project_base/data/models/project_list_info.dart';
 import 'package:flutter_project_base/data/models/project_menu_info.dart';
+import 'package:flutter_project_base/data/models/system_tree_info.dart';
 import 'package:flutter_project_base/data/models/user_info.dart';
 
 /// API服务类
@@ -166,46 +168,88 @@ class ApiService {
     );
   }
 
-  // /// 体系列表
-  // /// [params] 被花括号 {} 括起来，这表示它是命名参数，必须使用 params: value 的方式传递。
-  // /// [systemTreeList] 体系列表
-  // Future<BaseResult<List<SystemTreeInfo>>> getSystemTreeList({Map<String, dynamic>? params}) async {
-  //   final result = await _networkManager.get(ApiConstant.systemTreeList, queryParameters: params);
-  //   return BaseResult(
-  //     errorCode: result.errorCode,
-  //     errorMsg: result.errorMsg,
-  //     data: (result.data as List).map((e) => SystemTreeInfo.fromJson(e as Map<String, dynamic>)).toList(),
-  //   );
-  // }
+  /// 体系列表
+  /// [params] 被花括号 {} 括起来，这表示它是命名参数，必须使用 params: value 的方式传递。
+  /// [systemTreeList] 体系列表
+  Future<BaseResult<List<SystemTreeInfo>>> getSystemTreeList({
+    Map<String, dynamic>? params,
+  }) async {
+    final result = await _networkManager.get(
+      ApiConstant.systemTreeList,
+      queryParameters: params,
+    );
+    return BaseResult(
+      errorCode: result.errorCode,
+      errorMsg: result.errorMsg,
+      data: (result.data as List)
+          .map((e) => SystemTreeInfo.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+  }
 
-  // //添加收藏
-  // /// [collectArticleInfo] 收藏文章信息
-  // Future<BaseResult<CollectArticleInfo>> addCollectArticle(int originId) async {
-  //   final result = await _networkManager.post("https://www.wanandroid.com/lg/collect/$originId/json", contentType: Headers.formUrlEncodedContentType);
-  //   //这里要做判空处理 因为result.data 可能是null
-  //   if (result.data == null) {
-  //     return BaseResult(errorCode: result.errorCode, errorMsg: result.errorMsg, data: null);
-  //   }
-  //   //这是添加收藏，所以返回的是null，而不是收藏ArticleInfo
-  //   return BaseResult(errorCode: result.errorCode, errorMsg: result.errorMsg, data: null);
-  // }
+  //添加收藏
+  /// [collectArticleInfo] 收藏文章信息
+  Future<BaseResult<CollectArticleInfo>> addCollectArticle(int originId) async {
+    final result = await _networkManager.post(
+      "https://www.wanandroid.com/lg/collect/$originId/json",
+      contentType: Headers.formUrlEncodedContentType,
+    );
+    //这里要做判空处理 因为result.data 可能是null
+    if (result.data == null) {
+      return BaseResult(
+        errorCode: result.errorCode,
+        errorMsg: result.errorMsg,
+        data: null,
+      );
+    }
+    //这是添加收藏，所以返回的是null，而不是收藏ArticleInfo
+    return BaseResult(
+      errorCode: result.errorCode,
+      errorMsg: result.errorMsg,
+      data: null,
+    );
+  }
 
-  // //取消收藏
-  // /// [params] 被花括号 {} 括起来，这表示它是命名参数，必须使用 params: value 的方式传递。
-  // /// [collectArticleInfo] 收藏文章信息
-  // Future<BaseResult<CollectArticleInfo>> cancelCollectArticle(int originId,{Map<String, dynamic>? params}) async {
-  //   final result = await _networkManager.post("https://www.wanandroid.com/lg/uncollect/$originId/json", data: params, contentType: Headers.formUrlEncodedContentType);
-  //   //这里要做判空处理 因为result.data 可能是null
-  //   if (result.data == null) {
-  //     return BaseResult(errorCode: result.errorCode, errorMsg: result.errorMsg, data: null);
-  //   }
-  //   //这是取消收藏，所以返回的是null，而不是收藏ArticleInfo
-  //   return BaseResult(errorCode: result.errorCode, errorMsg: result.errorMsg, data: null);
-  // }
+  //取消收藏
+  /// [params] 被花括号 {} 括起来，这表示它是命名参数，必须使用 params: value 的方式传递。
+  /// [collectArticleInfo] 收藏文章信息
+  Future<BaseResult<CollectArticleInfo>> cancelCollectArticle(
+    int originId, {
+    Map<String, dynamic>? params,
+  }) async {
+    final result = await _networkManager.post(
+      "https://www.wanandroid.com/lg/uncollect/$originId/json",
+      data: params,
+      contentType: Headers.formUrlEncodedContentType,
+    );
+    //这里要做判空处理 因为result.data 可能是null
+    if (result.data == null) {
+      return BaseResult(
+        errorCode: result.errorCode,
+        errorMsg: result.errorMsg,
+        data: null,
+      );
+    }
+    //这是取消收藏，所以返回的是null，而不是收藏ArticleInfo
+    return BaseResult(
+      errorCode: result.errorCode,
+      errorMsg: result.errorMsg,
+      data: null,
+    );
+  }
 
-  // ///我的收藏列表
-  // Future<BaseResult<HomeArticle>> getCollectArticleList({Map<String, dynamic>? params}) async {
-  //   final result = await _networkManager.get(ApiConstant.collectArticleList, queryParameters: params);
-  //   return BaseResult(errorCode: result.errorCode, errorMsg: result.errorMsg, data: HomeArticle.fromJson(result.data as Map<String, dynamic>));
-  // }
+  ///我的收藏列表
+  Future<BaseResult<HomeArticle>> getCollectArticleList({
+    Map<String, dynamic>? params,
+  }) async {
+    final result = await _networkManager.get(
+      ApiConstant.collectArticleList,
+      queryParameters: params,
+    );
+    return BaseResult(
+      errorCode: result.errorCode,
+      errorMsg: result.errorMsg,
+      data: HomeArticle.fromJson(result.data as Map<String, dynamic>),
+    );
+  }
 }

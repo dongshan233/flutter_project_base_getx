@@ -2,6 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_project_base/app/routes/app_routes.dart';
+import 'package:flutter_project_base/core/utils/route_utils.dart';
 import 'package:flutter_project_base/data/models/home_article.dart';
 import 'package:flutter_project_base/modules/main/controller/home_controller.dart';
 import 'package:flutter_project_base/utils/string_util.dart';
@@ -141,7 +143,17 @@ class _HomeWidgetState extends State<HomeWidget>
         itemBuilder: (context, index) {
           final article = articleList[index];
           return InkWell(
-            onTap: () {},
+            onTap: () {
+              RouteUtils.to(
+                AppRoutes.webview,
+                arguments: {
+                  "link": article.link,
+                  "title": article.title,
+                  "originId": article.id,
+                  "isCollect": article.collect,
+                },
+              );
+            },
             child: Card(
               margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               elevation: 0,
