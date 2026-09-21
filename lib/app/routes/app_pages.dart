@@ -3,6 +3,7 @@ import 'package:flutter_project_base/modules/main/main_binding.dart';
 import 'package:flutter_project_base/modules/main/main_page.dart';
 import 'package:flutter_project_base/modules/login/login_binding.dart';
 import 'package:flutter_project_base/modules/login/login_page.dart';
+import 'package:flutter_project_base/modules/webview/webview_page.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
 abstract class AppPages {
@@ -18,5 +19,6 @@ abstract class AppPages {
       page: () => MainPage(),
       binding: MainBinding(),
     ),
+    GetPage(name: AppRoutes.webview, page: () => WebviewPage()),
   ];
 }
