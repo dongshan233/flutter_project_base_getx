@@ -47,7 +47,7 @@ class _HomeWidgetState extends State<HomeWidget>
     super.build(context); //向父布局申请保活
     return _homeController.obx(
       (articleList) {
-        return _buildSucess(articleList);
+        return _buildSucess(articleList!);
       },
       onLoading: _buildLoading(),
       onError: (error) {
